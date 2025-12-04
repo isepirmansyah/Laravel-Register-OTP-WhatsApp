@@ -108,13 +108,13 @@ APP_FALLBACK_LOCALE=id
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=db_otp_whatsapp  <-- Masukkan nama DB yang dibuat di langkah 1
-DB_USERNAME=root             <-- Username DB Anda
-DB_PASSWORD=                 <-- Password DB Anda
+DB_DATABASE=db_otp_whatsapp
+DB_USERNAME=root
+DB_PASSWORD=
 
 # --- KONFIGURASI MOONWA ---
 MOONWA_API_KEY="masukkan_api_key_moonwa_anda_disini"
-MOONWA_API_URL="[https://api.moonwa.id/api/send-message](https://api.moonwa.id/api/send-message)"
+MOONWA_API_URL="https://api.moonwa.id/api/send-message"
 ```
 
 ### 4. Migrasi Database
