@@ -61,7 +61,7 @@ class RegisteredUserController extends Controller
         $apiKey = config('app.moonwa_api_key', env('MOONWA_API_KEY'));
         $apiUrl = config('app.moonwa_api_url', env('MOONWA_API_URL'));
 
-        $message = "Kode OTP Anda adalah: " . $otp . ". Jangan berikan kode ini kepada siapapun.";
+        $message = "Kode OTP Anda adalah: *" . $otp . "*. Jangan berikan kode ini kepada siapapun.";
 
         Http::post($apiUrl, [
             'api_key' => $apiKey,
