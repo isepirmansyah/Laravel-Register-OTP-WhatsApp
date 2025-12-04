@@ -84,3 +84,69 @@ composer install
 # Install dependensi Frontend (NPM)
 npm install && npm run build
 ```
+
+### 3. Konfigurasi Environment (.env)
+
+Salin file .env.example menjadi .env dan generate key:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Buka file .env dan sesuaikan konfigurasi berikut. PENTING: Pastikan konfigurasi Database dan Moonwa API Key sudah benar.
+
+Cuplikan kode
+
+```bash
+APP_NAME=Laravel
+APP_URL=http://localhost
+APP_LOCALE=id
+APP_FALLBACK_LOCALE=id
+
+# --- KONFIGURASI DATABASE ---
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_otp_whatsapp  <-- Masukkan nama DB yang dibuat di langkah 1
+DB_USERNAME=root             <-- Username DB Anda
+DB_PASSWORD=                 <-- Password DB Anda
+
+# --- KONFIGURASI MOONWA ---
+MOONWA_API_KEY="masukkan_api_key_moonwa_anda_disini"
+MOONWA_API_URL="[https://api.moonwa.id/api/send-message](https://api.moonwa.id/api/send-message)"
+```
+
+### 4. Migrasi Database
+
+Jalankan migrasi untuk membuat tabel users beserta kolom pendukung OTP:
+
+```bahs
+php artisan migrate
+```
+
+## 📖 Cara Penggunaan
+
+1. Jalankan server lokal:
+
+```bash
+php artisan serve
+```
+
+2. Buka browser di http://localhost:8000/register.
+
+3. Isi form pendaftaran. Masukkan nomor WhatsApp dengan format internasional atau lokal (contoh: 081234567890 atau 62812...).
+
+4. Cek WhatsApp Anda. Moonwa akan mengirimkan pesan berisi kode unik.
+
+5. Masukkan kode tersebut di halaman verifikasi web.
+
+6. Selesai! Anda akan diarahkan ke Dashboard.
+
+## 📄 Lisensi
+
+Proyek ini adalah perangkat lunak open-source di bawah MIT license.
+
+<p align="center"> <strong>Powered by <a href="https://moonwa.id">Moonwa.id</a></strong>
+
+Solusi WhatsApp Gateway API & Notifikasi Real-time Indonesia. </p>
